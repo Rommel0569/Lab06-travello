@@ -1,0 +1,80 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lugares Turísticos</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">        
+</head>
+<body>
+
+
+    <header>
+        <div class="logo">
+            <img src="https://tviajes.com/agencias-de-viajes/logo/selva-viajes-y-turismo-1844.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:8000/" class="sub">Inicio</a></li>
+
+                {% if user.is_authenticated %}
+                    <li class="sub welcome-message">Hello, <span>{{user.first_name}}</span></li>
+                    <li><a href="cuentas/logout" class="sub">Salir</a></li>
+                {% else %}
+                    <li><a href="http://127.0.0.1:8000/cuentas/register" class="sub">Registrarse</a></li>
+                    <li><a href="http://127.0.0.1:8000/cuentas/login" class="sub">Ingresar</a></li>
+                {% endif %}
+
+		<li><a href="#" class="carrito" data-counter="0">&#128722;</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}
+    <div class="turismo-peru1">
+        <h2 >LUGARES TURISTICOS</h2>
+    </div>
+
+    <div class="turismo-peru">
+        <div class="content">
+          <div class="image">
+            <img src="https://viajaresmejor.com/wp-content/uploads/lugares-turisticos-del-peru.jpg" alt="Imagen del lugar turístico">
+          </div>
+          <div class="text">
+            <p>Si usted está buscando un lugar perfecto para celebrar una reunión, convención, congreso o viaje de incentivo en alguna parte de la Amazonia Peruana, la Selva Central ofrece magníficos hoteles y lodges con servicios de buena clase e instalaciones modernas que suman un lugar ideal para celebrar sus reuniones o eventos.
+
+Entretener a sus delegados  no podría ser más sencillo, ya que hay muchas cosas que hacer en la Selva Central (Chanchamayo, Oxapampa, Satipo y Puerto Inca), hay muchos tours de aventura y tours de naturaleza. También contamos con restaurantes fabulosos muy recomendados.
+Nuestros recursos turísticos enamoran a todos los visitantes, la hospitalidad y amabilidad de las personas de nuestra maravillosa Selva Central hará que su reunión sea como ningún otro.
+
+¡Conoce la Selva Central y aseguramos que tendrá uno de sus mejores días de su vida!</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="turismo-peru1">
+        <h2 >VIAJES NACIONALES</h2>
+    </div>
+
+    <main>
+        <div class="destinos-grid">
+            {% for destino in destinos %}
+                <div class="destino">
+                    <h2>{{ destino.nombreCiudad }}</h2>
+                    <img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}">
+                    <p>Precio: {{ destino.precioTour }}</p>
+                    {% if destino.ofertaTour %}
+                        <p class="oferta">¡En oferta!</p>
+                    {% endif %}
+		    <a href="{% url 'detalle_destino' destino.id %}" class="ver-btn">VER</a>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    {% endblock %}
+
+    <footer>
+        <p>© 2023 Lugares Selva Central. Copyrigth</p>
+    </footer>
+</body>
+</html>
