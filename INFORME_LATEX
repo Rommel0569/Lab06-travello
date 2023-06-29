@@ -1,0 +1,1001 @@
+%package list
+\documentclass{article}
+\usepackage[top=3cm, bottom=3cm, outer=3cm, inner=3cm]{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{array}
+%\usepackage{multicol}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\usepackage{natbib}
+\usepackage{pdfpages}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{svg}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinestyle{ascii-tree}{
+    literate={├}{|}1 {─}{--}1 {└}{+}1 
+  }
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+%\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{array}
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\itemEmail}{rchambive@unsa.edu.pe}
+\newcommand{\itemStudent}{Rommel Abraham Chambi Velasquez}
+\newcommand{\itemCourse}{Programación Web 2}
+\newcommand{\itemCourseCode}{20220569}
+\newcommand{\itemSemester}{III}
+\newcommand{\itemUniversity}{Universidad Nacional de San Agustín de Arequipa}
+\newcommand{\itemFaculty}{Facultad de Ingeniería de Producción y Servicios}
+\newcommand{\itemDepartment}{Departamento Académico de Ingeniería de Sistemas e Informática}
+\newcommand{\itemSchool}{Escuela Profesional de Ingeniería de Sistemas}
+\newcommand{\itemAcademic}{2023 - A}
+\newcommand{\itemInput}{Del 14 Junio 2023}
+\newcommand{\itemOutput}{Al 28 Junio 2023}
+\newcommand{\itemPracticeNumber}{06}
+\newcommand{\itemTheme}{Python - Django}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[english,spanish]{babel}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\selectlanguage{spanish}}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\refname}{Referencias}
+\renewcommand{\tablename}{Tabla} %esto no funciona cuando se usa babel
+\AtBeginDocument{%
+	\renewcommand\tablename{Tabla}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{30pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyhead[L]{\raisebox{-0.2\height}{\includegraphics[width=3cm]{logo_episunsa.png}}}
+\fancyhead[C]{\fontsize{7}{7}\selectfont	\itemUniversity \\ \itemFaculty \\ \itemDepartment \\ \itemSchool \\ \textbf{\itemCourse}}
+\fancyhead[R]{\raisebox{-0.2\height}{\includegraphics[width=1.2cm]{logo_abet}}}
+\fancyfoot[L]{Estudiante Rommel Abraham Chambi}
+\fancyfoot[C]{\itemCourse}
+\fancyfoot[R]{Página \thepage}
+
+% para el codigo fuente
+\usepackage{listings}
+\usepackage{color, colortbl}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{codebackground}{rgb}{0.95, 0.95, 0.92}
+\definecolor{tablebackground}{rgb}{0.8, 0, 0}
+
+\lstset{frame=tb,
+	language=bash,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3,
+	backgroundcolor= \color{codebackground},
+}
+
+\begin{document}
+	
+	\vspace*{10px}
+	
+	\begin{center}	
+		\fontsize{17}{17} \textbf{ Informe de Laboratorio \itemPracticeNumber}
+	\end{center}
+	\centerline{\textbf{\Large Tema: \itemTheme}}
+	%\vspace*{0.5cm}	
+
+	\begin{flushright}
+		\begin{tabular}{|M{2.5cm}|N|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white} \textbf{Nota}  \\
+			\hline 
+			     \\[30pt]
+			\hline 			
+		\end{tabular}
+	\end{flushright}	
+
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white} \textbf{Estudiante} & \color{white}\textbf{Escuela}  & \color{white}\textbf{Asignatura}   \\
+			\hline 
+			{\itemStudent \par \itemEmail} & \itemSchool & {\itemCourse \par Semestre: \itemSemester \par Código: \itemCourseCode}     \\
+			\hline 			
+		\end{tabular}
+	\end{table}		
+	
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white}\textbf{Laboratorio} & \color{white}\textbf{Tema}  & \color{white}\textbf{Duración}   \\
+			\hline 
+			\itemPracticeNumber & \itemTheme & 04 horas   \\
+			\hline 
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white}\textbf{Semestre académico} & \color{white}\textbf{Fecha de inicio}  & \color{white}\textbf{Fecha de entrega}   \\
+			\hline 
+			\itemAcademic & \itemInput &  \itemOutput  \\
+			\hline 
+		\end{tabular}
+	\end{table}
+	
+	\section{Tarea}
+	\begin{itemize}		
+		\item Crear un pagina web sobre viajes en el Perú en un entorno virtual utilizando la guía: \url{https://tutorial.djangogirls.org/es/django_start_project/}
+            \item Especificar paso a paso la creación del blog en su informe.
+	\end{itemize}
+        \begin{figure}[H]
+		\centering
+		\includegraphics[width=0.25\textwidth,keepaspectratio]{django.png}
+	\end{figure}
+
+	\section{URL de Repositorio Github}
+	\begin{itemize}
+		\item URL para el laboratorio 06 en el Repositorio GitHub.
+		\item \url{https://github.com/Rommel0569/Lab06-travello.git}
+	\end{itemize}
+ 
+ \section{URL de la Presentación del trabajo en Flip}
+	\begin{itemize}
+		\item URL para la presentación del laboratorio 06.
+		\item \url{https://flip.com/groups/14644257/topics/36969916/responses}
+	\end{itemize}
+	
+	\section{Ejercicios}
+ 
+        \subsection{Estructura de laboratorio 05}
+	\begin{itemize}	
+		\item La distribucion de archivos sera la siguiente (teniendo en cuenta solo el entorno virtual y los archivos mas importantes, por ejemplo lo descargado en el entorno es demasiado extense como para incluirlo, el latex y un README estaran en la carpeta anterior):
+	\end{itemize}
+	
+\begin{lstlisting}[style=ascii-tree]
+LAB06-PWEB2/
+    ├──myenv/
+        ├── lugares_turisticos
+             ├── lugares_turisticos
+                    ├── __pycache__
+                    ├── __init__.py
+                    ├── asgi.py
+                    ├── settings.py
+                    ├── urls.py
+                    ├── wsgi.py
+             ├── templates
+                 ├── destinos_turisticos.html
+                 ├── detalle_destino.html
+                 ├── login.html
+                 ├── register.html
+             ├── static
+                 ├── style.css 
+             ├── media
+                 ├── imagenes 
+             ├── destinos
+                ├── __pycache__
+                ├── migrations
+                ├── __init__.py
+                ├── settings.py
+                ├── urls.py
+                ├── views.py
+                ├── admin.py
+                ├── models.py
+                ├── tests.py
+            ├── Scripts
+            ├── db.sqlite3
+            ├── manage.py
+            ├── pyvenv.cfg
+            ├── cuentas
+                ├── __pycache__
+                ├── migrations
+                ├── __init__.py
+                ├── settings.py
+                ├── urls.py
+                ├── views.py
+                ├── admin.py
+                ├── models.py
+                ├── apps.py
+                ├── tests.py
+
+\end{lstlisting}  
+ 
+	\subsection{Análisis de archivos }
+ 
+        \begin{itemize}	
+		\item En primer lugar hay que hablar del entorno virtual, que como vimos en la clase pasada, nos ayudara a crear nuestra blog en este caso:\newline\newline
+	\end{itemize}
+        
+	\begin{lstlisting}[language=bash,caption={Bloque 1 de settings.py}][H]
+        INSTALLED_APPS = [
+            'destinos.apps.DestinosConfig',
+            'django.contrib.admin',
+            'django.contrib.auth',
+            'django.contrib.contenttypes',
+            'django.contrib.sessions',
+            'django.contrib.messages',
+            'django.contrib.staticfiles',
+        ]
+	\end{lstlisting}
+     Estas son las configuraciones de las aplicaciones instaladas. La aplicación más reciente, llamada "destinos", es la que creamos para nuestra pagina web de viajes en el Perú.
+                  
+	\begin{lstlisting}[language=bash,caption={Settings.py - cambio de idioma y region}][H]
+            LANGUAGE_CODE = 'es-es'
+            TIME_ZONE = 'America/Lima'
+	\end{lstlisting}
+        En este bloque se modificó el idioma y la región que venían por default.
+
+        \begin{lstlisting}[language=bash,caption={Settings.py - cambio 3}][H]
+            STATIC_URL = '/static/'
+            STATICFILES_DIRS = [
+                os.path.join(BASE_DIR, 'static')
+            ]
+            
+            MEDIA_URL = '/media/'
+            MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+	\end{lstlisting}
+        Se agrego la ultima linea al "settings.py" original con el fin de especificar donde se ubicará los archivos "static" y los archivos "media" que se van a formar en el proyecto.
+        
+        \begin{itemize}	
+    		\item Ahora veamos la aplicacion "destinos" creada a traves del comando "python manage.py startapp destinos" que crea un nuevo directorio. A continuación "models.py"
+        \end{itemize}
+        \begin{lstlisting}[language=bash,caption={bloque4}][H]
+        from django.conf import settings
+        from PIL import Image
+        from django.db import models
+
+        # Create your models here.
+        class DestinosTuristicos(models.Model):
+            nombreCiudad = models.CharField(max_length=100)
+            descripcionCiudad = models.TextField()
+            imagenCiudad = models.ImageField(upload_to='imagenes/')
+            precioTour = models.DecimalField(max_digits=8, decimal_places=2)
+            ofertaTour = models.BooleanField(default=False)
+        
+            def __str__(self):
+                return self.nombreCiudad
+	\end{lstlisting}
+
+        \begin{itemize}	
+    		\item Archivo admin
+        \end{itemize}
+        
+        \begin{lstlisting}[language=bash,caption={admin.py}][H]
+            from django.contrib import admin
+            from .models import DestinosTuristicos
+            
+            # Register your models here.
+            
+            admin.site.register(DestinosTuristicos)
+	\end{lstlisting}
+
+        \begin{itemize}	
+    		\item Archivo urls
+        \end{itemize}
+        
+        \begin{lstlisting}[language=bash,caption={urls.py}][H] 
+         from django.urls import path
+         from . import views
+        
+         urlpatterns = [
+            path('', views.destinos_turisticos, name='destinos_turisticos'),
+            path('destino/<int:destino_id>/', views.detalle_destino, name='detalle_destino'),
+	\end{lstlisting}
+    Aquí están las rutas que utilizaremos en nuestra pagina web. La primera ruta es la raíz o la página principal. La segunda ruta se utiliza para mostrar los detalles de una publicación específica.
+
+	\begin{itemize}	
+		\item Archivos views
+	\end{itemize}
+	\begin{lstlisting}[language=bash,caption={views.py}][H]
+            from PIL import Image
+            from django.shortcuts import render, redirect
+            from .models import DestinosTuristicos
+            from django.shortcuts import render, get_object_or_404
+            
+            # Create your views here.
+            
+            def destinos_turisticos(request):
+                destinos = DestinosTuristicos.objects.all()
+                return render(request, 'destinos_turisticos.html', {'destinos': destinos})
+            
+            def detalle_destino(request, destino_id):
+                destino = get_object_or_404(DestinosTuristicos, pk=destino_id)
+                return render(request, 'detalle_destino.html', {'destino': destino})
+            ~                                                                           
+	\end{lstlisting}
+        En resumen, tenemos dos vistas en nuestro pagina web. La vista "destinos\_turisticos" muestra la pagina raiz o la pagina principal. La vista "detalle\_destino" muestra los detalles de una publicación específica. 
+
+        \begin{itemize}	
+		\item Plantillas HTML
+	\end{itemize}
+	\begin{lstlisting}[language=bash,caption={destinos_turisticos.html}][H]
+           d static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lugares Turísticos</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    
+
+    <header>
+        <div class="logo">
+            <img src="https://tviajes.com/agencias-de-viajes/logo/selva-viajes-y-turismo-1844.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:8000/" class="sub">Inicio</a></li>
+
+                {% if user.is_authenticated %}
+                    <li class="sub welcome-message">Hello, <span>{{user.first_name}}</span></li>
+                    <li><a href="cuentas/logout" class="sub">Salir</a></li>
+                {% else %}
+                    <li><a href="http://127.0.0.1:8000/cuentas/register" class="sub">Registrarse</a></li>
+                    <li><a href="http://127.0.0.1:8000/cuentas/login" class="sub">Ingresar</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}
+    <div class="turismo-peru1">
+        <h2 >LUGARES TURISTICOS DE LA SELVA CENTRAL</h2>
+    </div>
+
+    <div class="turismo-peru">
+        <div class="content">
+          <div class="image">
+            <img src="https://portal.andina.pe/EDPfotografia3/Thumbnail/2022/06/23/000878002W.jpg" alt="Imagen del lugar turístico">
+          </div>
+          <div class="text">
+            <p>Si usted está buscando un lugar perfecto para celebrar una reunión, convención, congreso o viaje de incentivo en alguna parte de la Amazonia Peruana, la Selva Central ofrece magníficos hoteles y lodges con servicios de buena clase e instalaciones modernas que suman un lugar ideal para celebrar sus reuniones o eventos.
+
+            Entretener a sus delegados  no podría ser más sencillo, ya que hay muchas cosas que hacer en la Selva Central (Chanchamayo, Oxapampa, Satipo y Puerto Inca), hay muchos tours de aventura y tours de naturaleza. También contamos con restaurantes fabulosos muy recomendados.
+            
+            Nuestros recursos turísticos enamoran a todos los visitantes, la hospitalidad y amabilidad de las personas de nuestra maravillosa Selva Central hará que su reunión sea como ningún otro.
+            
+            ¡Conoce la Selva Central y aseguramos que tendrá uno de sus mejores días de su vida!</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="turismo-peru1">
+        <h2 >DESTINOS POPULARES DE LA SELVA CENTRAL</h2>
+    </div>
+
+    <main>
+        <div class="destinos-grid">
+            {% for destino in destinos %}
+                <div class="destino">
+                    <h2>{{ destino.nombreCiudad }}</h2>
+                    <img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}">
+                    <p>Precio: {{ destino.precioTour }}</p>
+                    {% if destino.ofertaTour %}
+                        <p class="oferta">¡En oferta!</p>
+                    {% endif %}
+                    <a href="{% url 'detalle_destino' destino.id %}" class="ver-btn">VER</a>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    {% endblock %}
+    
+    <footer>
+        <p>© 2023 Lugares Populares Selva Central. Copirigth</p>
+    </footer>
+</body>
+</html>
+
+	\end{lstlisting}
+        Esta plantilla HTML representa la pagina principal de la pagina web de viajes. 
+
+        \begin{lstlisting}[language=bash,caption={detalle_destino.html}][H]
+            {% extends 'destinos_turisticos.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="centered-container">
+    <div class="detalle-destino">
+        <div class="imagen">
+            <img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}" class="imagen-ciudad">
+        </div>
+        <div class="descripcion-precio">
+            <div class="descripcion">
+                <h2>{{ destino.nombreCiudad }}</h2>
+                <p>{{ destino.descripcionCiudad }}</p>
+            </div>
+            <div class="precio-oferta">
+                <div class="precio">
+                    <p>Precio: {{ destino.precioTour }}</p>
+                </div>
+                <div>
+                    {% if destino.ofertaTour %}
+                        <p class="oferta">¡En oferta!</p>
+                    {% endif %}
+                </div>
+                <div class="comprar-btn">
+                    <a href="http://127.0.0.1:8000/cuentas/login" class="comprar-btn">COMPRAR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+	\end{lstlisting}
+         Este HTML permite ver la información de cada sección, asi como también ver si el viaje esta en oferta o no y la opción de comprar.
+         
+         \begin{lstlisting}[language=bash,caption={login.html}][H]
+         {% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ingresar...</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<header>
+    <div class="logo">
+    </div>
+    <nav>
+        <ul >
+            <li><a href="http://127.0.0.1:8000/" class="sub">Inicio</a></li>
+            <li><a href="http://127.0.0.1:8000/cuentas/register" class="sub">Registrarse</a></li>
+            <li><a href="#" class="carrito" data-counter="0">&#128722;</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+
+    <h1 class="titLoginRegister" align="center">INGRESAR</h1>
+
+    <form action="login" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Usuario"><br>
+        <input type="password" name="password" placeholder="Contraseña"><br>
+        <input type="Submit">
+    </form>
+
+    <div>
+            {% for message in messages %}
+            <h3> {{message}}  </h3>
+            {% endfor %}
+    </div>
+</body>
+</html>
+
+
+	\end{lstlisting}
+        Este HTMl permite ingresar a la pagina web utilizando un usuario creado o también con un superusuario.    
+        
+            \begin{lstlisting}[language=bash,caption={register.html}][H]
+         {% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registrarme..</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<header>
+    <div class="logo" >
+    </div>
+    <nav>
+        <ul >
+            <li><a href="http://127.0.0.1:8000/" class="sub">Inicio</a></li>
+            <li><a href="http://127.0.0.1:8000/cuentas/login" class="sub">Ingresar</a></li>
+            <li><a href="#" class="carrito" data-counter="0">&#128722;</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+
+    <h1 class="titLoginRegister" align="center">REGISTRAR</h1>
+
+    <form action="register" method="post">
+        {% csrf_token %}
+
+        <input type="text" name="first_name" placeholder="Nombres"><br>
+        <input type="text" name="last_name" placeholder="Apellidos"><br>
+        <input type="text" name="username" placeholder="Usuario"><br>
+        <input type="email" name="email" placeholder="Correo"><br>
+        <input type="password" name="password1" placeholder="Contraseña"><br>
+        <input type="password" name="password2" placeholder="Confirmar Contraseña"><br>
+        <input type="Submit">
+
+    </form>
+
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
+
+	\end{lstlisting}
+        Este HTMl permite el registro de los datos, para asi poder ingresar a la pagina y comprar los viajes.    
+        
+        \item \textbf{Archivos de estilos, style.css}
+        \begin{lstlisting}[language=bash,caption={style.css}][H]
+                  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #8BC34A;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  max-width: 110px;
+  height: auto;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 20px;
+  padding: 10px;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+.sub {
+  display: inline-block;
+  padding: 10px;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.sub:hover {
+  background-color: #ccc;
+}
+
+.welcome-message span {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.carrito {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  background-color: #e9e9e9;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.carrito:hover {
+  background-color: #ccc;
+}
+
+.carrito::after {
+  content: attr(data-counter);
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: #ff0000;
+  color: #fff;
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 20px;
+  padding: 10px;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+.sub {
+  display: inline-block;
+  padding: 10px;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.sub:hover {
+  background-color: #ccc;
+}
+
+.welcome-message span {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #555;
+}  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.turismo-peru {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  margin: 20px;
+}
+
+.turismo-peru1 {
+  color: #fff;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 20px;
+}
+
+.turismo-peru3 {
+  align-items: center;
+  color: #fff;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.turismo-peru h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.turismo-peru .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5 px;
+}
+
+.turismo-peru .image img {
+  max-width: 600px;
+  height: auto;
+}
+
+.turismo-peru .text p {
+  text-align: justify;
+  font-size: 18px;
+  margin: 1px 30px;
+}
+
+main {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.destinos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.destino {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.destino h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.destino img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.destino p {
+  margin-bottom: 5px;
+}
+
+.oferta {
+  font-weight: bold;
+  color: green;
+}
+
+.ver-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+form {
+  background-color: #fff;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  align-content: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #333;
+}
+
+div.message {
+  margin-top: 10px;
+  text-align: center;
+}
+
+h3 {
+  color: #333;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+.navbar a.carrito {
+  font-size: 24px;
+}
+
+.titLoginRegister {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.detalle-destino {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.detalle-destino img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.detalle-destino h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.detalle-destino p {
+  margin-bottom: 5px;
+}
+
+.detalle-destino .precio {
+  font-weight: bold;
+  color: green;
+  margin-bottom: 10px;
+}
+
+.detalle-destino .descripcion {
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.detalle-destino .ver-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.detalle-destino .ver-btn:hover {
+  background-color: #333;
+}
+
+@media (max-width: 768px) {
+  .destinos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+	\end{lstlisting}
+       Este es el archivo CSS y cabe mencionar que este es estatico, es decir, maneja los html anteriormente vistos.  \newline\newline
+       
+        \subsection{Demostracion de pagina}
+        Ahoa veamos a la pagina como tal:\newline\newline
+        \textbf{Primero tenemos que correr nuestro server con el comando "python manage.py runserver", una vez dentro veamos la pantall principal:} \newline \newline \newline \newline 
+        \includegraphics[width=16cm]{PantallaInicio.png}
+        Como vemos, nos da una breve descripcion de lo que es la agencia de viajes y en que parte del Perú se centra. Además tenemos secciones, es decir viajes para escoger, veamos:
+        \newline\newline
+        \includegraphics[width=16cm]{viajes.png}
+        Como vemos, podemos acceder a la información de cada destino turistico, ya sea sobre el lugar, el costo y si esta en oferta, por ejemplo le damos a Iquitos:
+        \newline\newline
+         Como vemos, se puede ver la información del lugar, el costo y si esta en oferta, ahora le damos a "comprar" y nos va pedir que ingresemos con una cuenta o nos registremos.
+        \includegraphics[width=8cm]{}
+        \newline\newline
+         Si queremos registrarnos simplemente tenemos que llenar los campos vacios, con lo que se requiere:
+        \includegraphics[width=16cm]{registro.png}
+
+        \newline\newline\newline
+        Ahora veamos en el apartado del  Admin y nuestro usuario:
+        \newline\newline
+        \includegraphics[width=16cm]{adminis.png}
+        Ademas tenemos las secciones de viajes que se han ido creando:\newline
+    
+        \includegraphics[width=16cm]{lista.png}
+        \newline\newline
+        \includegraphics[width=16cm]{info.png}
+        
+\section{Referencias}
+\begin{itemize}	
+    \item \url{https://www.w3schools.com/python/python_reference.asp}
+    \item \url{ https://docs.python.org/3/tutorial/}
+    \item \url{https://developer.mozilla.org/es/docs/Learn/Server-side/Django/Models}
+    \item \url{https://tutorial.djangogirls.org/es/django_models/}
+    \item \url{https://pear.php.net/manual/en/standards.php}
+    \item \url{https://docs.djangoproject.com/en/4.0/}
+    \item \url{https://www.youtube.com/watch?v=M4NIs4BM1dk}
+    \item \url{https://pypi.org/}
+    \item \url{https://pip.pypa.io/en/latest/user_guide/}
+    \item \url{https://packaging.python.org/en/latest/tutorials/installing-packages/}
+\end{itemize}	
+	
+%\clearpage
+%\bibliographystyle{apalike}
+%\bibliographystyle{IEEEtranN}
+%\bibliography{bibliography}
+			
+\end{document}
